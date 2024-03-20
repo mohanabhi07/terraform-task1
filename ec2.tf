@@ -7,7 +7,7 @@ resource "aws_instance" "web_server_a" {
   associate_public_ip_address = "true"
   key_name = "Demo"
   vpc_security_group_ids = [aws_security_group.web_sg.id]
-  user_data = <<EOF
+  user_data = <<-EOF
               #!/bin/bash
               sudo yum update -y
               sudo yum install httpd -y
@@ -27,7 +27,7 @@ resource "aws_instance" "web_server_b" {
   key_name = "Demo"
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
-  user_data = <<EOF
+  user_data = <<-EOF
               #!/bin/bash
               sudo yum update -y
               sudo yum install httpd -y
