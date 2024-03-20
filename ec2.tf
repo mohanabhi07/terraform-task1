@@ -1,5 +1,3 @@
-
-
 resource "aws_instance" "web_server_a" {
   ami           = "ami-079ae45378903f993"  
   instance_type = "t3.micro"
@@ -10,8 +8,12 @@ resource "aws_instance" "web_server_a" {
   user_data = <<-EOF
               #!/bin/bash
               sudo yum update -y
-              sudo yum install httpd -y
-              sudo systemctl start httpd
+              sudo amazon-linux-extras enable nginx1
+              sudo yum install -y nginx
+              sudo systemctl start nginx
+              sudo systemctl enable nginx
+              echo "Hello World from server 1" > index.html
+              sudo cp index.html /usr/share/nginx/html
             EOF
 
   tags = {
@@ -30,8 +32,12 @@ resource "aws_instance" "web_server_b" {
   user_data = <<-EOF
               #!/bin/bash
               sudo yum update -y
-              sudo yum install httpd -y
-              sudo systemctl start httpd
+              sudo amazon-linux-extras enable nginx1
+              sudo yum install -y nginx
+              sudo systemctl start nginx
+              sudo systemctl enable nginx
+              echo "Hello World from server 1" > index.html
+              sudo cp index.html /usr/share/nginx/html
             EOF
 
   tags = {
