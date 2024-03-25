@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static Website Hosting with Amazon EC2 using S3 and Load Balancer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+  // Function to fetch and display the server's IP address
+  function displayIpAddress() {
+      fetch('https://api.ipify.org?format=json')
+          .then(response => response.json())
+          .then(data => {
+              document.getElementById('ip-address').innerText = data.ip;
+          })
+          .catch(error => {
+              console.error('Error fetching IP address:', error);
+              document.getElementById('ip-address').innerText = 'Error fetching IP address';
+          });
+  }
+
+  // Call the function when the page loads
+  window.onload = displayIpAddress;
+</script>
+
+<body>
+  <header>
+    <div class="container1">
+      <img src="aws-logo.png" alt="AWS Logo">
+      <h1>Static Website Hosting with Amazon EC2 using S3 and Load Balancer</h1>
+    </div>
+  </header>
+  <div class="container">
+    <h5>Server IP Address:</h5>
+    <p id="ip-address">Fetching IP address...</p><br>
+    <p>This is server 1 AZ-a</p>
+  </div>
+  <main>
+      <h2>Terraform Use Case 2: Hosting a Static Website with Amazon EC2 using S3 and Load Balancer.</h2>
+      <p>Welcome to our website!</p>
+      <p>We are Team 3, consisting of Abin Mathew, Venkatesh Ramesh, and Mohan Y.</p>
+      <p>We're excited to showcase our project on static website hosting with Amazon EC2 using S3 and Load Balancer.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Team 3 - Abin Mathew, Venkatesh Ramesh, Mohan Y.</p>
+    </div>
+  </footer>
+</body>
+</html>
